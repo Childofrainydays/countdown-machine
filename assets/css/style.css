@@ -1,0 +1,21 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: #fff;
+    border-radius: 10px;
+}
+
+.time-box{
+    justify-content: space-between;
+}
+
+.time-up{
+    width: 100%;
+    text-align: center;
+    display: none;
+}
