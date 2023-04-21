@@ -5,6 +5,7 @@ body {
     justify-content: center;
 }
 
+/*for google font icons*/
 .material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,
@@ -14,11 +15,16 @@ body {
   }
 
 .container {
+    position: relative;
     background: #fff;
     border-radius: 10px;
+    width: 400px;
 }
 
 .time-box{
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
