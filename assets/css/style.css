@@ -3,19 +3,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #9aa9be;
-}
-
-.timer{
-    font-family: 'Aldrich', sans-serif;
+    background:#ccc;
 }
 
 .container {
     position: relative;
-    background: #fff;
+    background: #eee;
     border-radius: 10px;
-    width: 400px;
-    height: 100px;
+    width: 600px;
+    padding: 20px;
     border-radius: 20px;
 }
 
@@ -32,3 +28,23 @@ body {
     display: none;
 }
 
+.timer{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.time-btn{
+    border-radius: 50%;
+    border: none;
+    color: #534B52;
+}
+
+.time-btn:hover{
+    color: #2D232E;
+}
+
+/*For Google Fonts icons*/
+.material-icons{
+    font-size: 4rem;
+}
