@@ -1,3 +1,10 @@
+:root {
+    --clr-1: #F8F9FA;
+    --clr-2: #DEE2E6;
+    --clr-3: #ADB5BD;
+    --clr-4: #495057;
+}
+
 body {
     height: 100vh;
     display: flex;
@@ -15,17 +22,18 @@ body {
     border-radius: 20px;
 }
 
+/*Attempt at glowing animated border*/
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+}
+
 .time-box{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.time-up{
-    width: 100%;
-    text-align: center;
-    display: none;
 }
 
 .timer{
