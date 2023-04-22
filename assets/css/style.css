@@ -1,3 +1,11 @@
+/* part of border gradient animation */
+/* source: https://youtu.be/-VOUK-xFAyk?t=220 */
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 :root {
     /* "In CSS, variables allow you to store and reuse values in your stylesheets. 
     They are declared using the -- prefix followed by a name, and can be assigned any value, such as a color, a font family, or a numeric value." */
@@ -24,23 +32,35 @@ body {
     border-radius: 20px;
 }
 
-/* Attempt at glowing animated border */
+/* glowing animated border */
 .container::before,
 .container::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        0deg,
+    z-index: -1;
+    background: conic-gradient(
+        from var(--gradient-angle),
         var(--clr-1),
         var(--clr-2),
         var(--clr-3),
-        var(--clr-4));
+        var(--clr-4),
+        var(--clr-3),
+        var(--clr-2),
+        var(--clr-1));
     border-radius: inherit;
+    /* animation */
+    animation: rotation 10s infinite linear;
 }
 
+/* Blur for animated border 'glow' */
 .container::after {
     filter: blur(2rem);
+}
+
+@keyframes rotation {
+    0% { --gradient-angle: 0deg; }
+    100% { --gradient-angle: 360deg; }
 }
 
 /* "Once you've declared a variable, you can use it in your stylesheets by referencing it with the var() function." */
