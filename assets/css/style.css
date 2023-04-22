@@ -1,8 +1,10 @@
 :root {
-    --clr-1: #F8F9FA;
-    --clr-2: #DEE2E6;
-    --clr-3: #ADB5BD;
-    --clr-4: #495057;
+    /* "In CSS, variables allow you to store and reuse values in your stylesheets. 
+    They are declared using the -- prefix followed by a name, and can be assigned any value, such as a color, a font family, or a numeric value." */
+    --clr-1: #80FFDB;
+    --clr-2: #4EA8DE;
+    --clr-3: #5E60CE;
+    --clr-4: #7400B8;
 }
 
 body {
@@ -22,12 +24,26 @@ body {
     border-radius: 20px;
 }
 
-/*Attempt at glowing animated border*/
+/* Attempt at glowing animated border */
 .container::before,
 .container::after {
     content: '';
     position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        var(--clr-1),
+        var(--clr-2),
+        var(--clr-3),
+        var(--clr-4));
+    border-radius: inherit;
 }
+
+.container::after {
+    filter: blur(2rem);
+}
+
+/* "Once you've declared a variable, you can use it in your stylesheets by referencing it with the var() function." */
 
 .time-box{
     width: 100%;
@@ -52,7 +68,7 @@ body {
     color: #2D232E;
 }
 
-/*For Google Fonts icons*/
+/* For Google Fonts icons */
 .material-icons{
     font-size: 4rem;
 }
