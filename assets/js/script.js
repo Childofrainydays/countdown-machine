@@ -1,21 +1,6 @@
-// Set countdown time with user input
+import Timer from "./timer.js";
 
-// Save the countdown time
-
-// Start the countdown
-function countdown() {
-
-}
-
-// Pause the countdown
-function pause() {
-
-}
-
-// Reset the countdown
-function reset() {
-
-}
+new Timer(document.querySelector('.time-box'));
 
 // create a function to invert timer colors when timer hits 0 
 //function invertColors() {

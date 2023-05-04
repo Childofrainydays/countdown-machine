@@ -41,6 +41,7 @@ body {
     z-index: -1;
     background: conic-gradient(
         from var(--gradient-angle),
+        /* "Once you've declared a variable, you can use it in your stylesheets by referencing it with the var() function." */
         var(--clr-1),
         var(--clr-2),
         var(--clr-3),
@@ -62,8 +63,6 @@ body {
     0% { --gradient-angle: 0deg; }
     100% { --gradient-angle: 360deg; }
 }
-
-/* "Once you've declared a variable, you can use it in your stylesheets by referencing it with the var() function." */
 
 .time-box{
     width: 100%;
@@ -92,3 +91,16 @@ body {
 .material-icons{
     font-size: 4rem;
 }
+
+.contact-bar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .contact-bar li {
+    list-style: none;
+    margin: 0 10px;
+  }
+  
