@@ -10,6 +10,8 @@ export default class Timer {
             seconds: root.querySelector(".seconds"),
             control: root.querySelector(".time-set"),
             start: root.querySelector(".time-start"),
+            stop: root.querySelector(".time-stop"),
+            reset: root.querySelector(".time-reset"),
         };
 
         //set the initial values to 0
