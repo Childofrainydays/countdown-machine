@@ -1,5 +1,5 @@
 /* part of border gradient animation */
-/* source: https://youtu.be/-VOUK-xFAyk?t=220 */
+/* treid based on: https://youtu.be/-VOUK-xFAyk?t=220 */
 @property --gradient-angle {
     syntax: "<angle>";
     initial-value: 0deg;

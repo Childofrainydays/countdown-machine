@@ -21,9 +21,12 @@ export default class Timer {
             //TODO: code here
         });
 
-        //Event listener for click event on the start button to start the timer
+        //Event listener for click event on the start button to start or pause the timer
         this.el.start.addEventListener("click", () => {
             //TODO: code here
+            if (this.interval === null) {
+                this.start();
+            }
         });
     }
 
@@ -62,7 +65,7 @@ export default class Timer {
         this.interval = setInterval(() => {
             this.secondsRemaining--;
             this.displayTimeUpdate();
-            
+
             // Check if the timer has reached zero
             if (this.secondsRemaining === 0) {
                 clearInterval(this.interval);
@@ -75,12 +78,16 @@ export default class Timer {
     // insert HTML
     static getHTML() {
         // Button class key: 
-        // time-start: play button; time-pause-play: pause button; time-set: button for user time input
-        // ` to use multi-line strings
-        // TODO: add button to reset timer to 00:00
+        // time-start: play button; time-pause-play: pause button; time-stop: resets time to 00:00; 
+        // time-set: button for user time input; time-reset: button to reset timer to user input
+        // TODO: add stop button to reset timer to 00:00
+        // TODO: add reset button to reset timer to user input
         return ` 
             <button type="button" class="time-btn time-set">
                 <span class="material-icons">timer</span>
+            </button>
+            <button type="button" class="time-btn time-reset">
+                <span class="material-icons">refresh</span>
             </button>
             <div>
                 <span class="timer minutes">00</span>
@@ -89,6 +96,9 @@ export default class Timer {
             </div>
             <button type="button" class="time-btn time-pause-play time-start">
                 <span class="material-icons">play_arrow</span>
+            </button>
+            <button type="button" class="time-btn time-stop">
+                <span class="material-icons">stop</span>
             </button>
         `;
     }
