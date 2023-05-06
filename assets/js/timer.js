@@ -23,12 +23,22 @@ export default class Timer {
             //TODO: code here
         });
 
+        //Event listener for click event on the reset button to reset the timer
+        this.el.reset.addEventListener("click", () => {
+            this.reset();
+        });
+
         //Event listener for click event on the start button to start or pause the timer
         this.el.start.addEventListener("click", () => {
             //TODO: code here
             if (this.interval === null) {
                 this.start();
             }
+        });
+
+        //Event listener for click event on the stop button to stop the timer
+        this.el.stop.addEventListener("click", () => {
+            this.stop();
         });
     }
 
@@ -75,15 +85,21 @@ export default class Timer {
             }
         }, 1000);
     }
-         
 
+    stop() {
+        clearInterval(this.interval);
+        this.interval = null;
+        this.timeRemain = 0;
+        this.displayTimeUpdate();
+        this.displayControlUpdate();
+    }
+      
     // insert HTML
     static getHTML() {
         // Button class key: 
         // time-start: play button; time-pause-play: pause button; time-stop: resets time to 00:00; 
         // time-set: button for user time input; time-reset: button to reset timer to user input
-        // TODO: add stop button to reset timer to 00:00
-        // TODO: add reset button to reset timer to user input
+        // TODO: complete reset button to reset timer to user input
         return ` 
             <button type="button" class="time-btn time-set">
                 <span class="material-icons">timer</span>
