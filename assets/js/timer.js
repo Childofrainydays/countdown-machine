@@ -1,12 +1,66 @@
 // code for timer lives in this file
 
+// Export Timer class from this file for use in script.js
 export default class Timer {
     constructor(root) {
         root.innerHTML = Timer.getHTML();
+
+        this.el = {
+            minutes: root.querySelector(".minutes"),
+            seconds: root.querySelector(".seconds"),
+            control: root.querySelector(".time-set"),
+            start: root.querySelector(".time-start"),
+        };
+
+        //set the initial values to 0
+        this.interval = null;
+        this.timeRemain = 0;
+
+        //Event listener for click event on the control button to set the time
+        this.el.control.addEventListener("click", () => {
+            //TODO: code here
+        });
+
+        //Event listener for click event on the start button to start the timer
+        this.el.start.addEventListener("click", () => {
+            //TODO: code here
+        });
     }
 
+    // Update the display of the timer
+    displayTimeUpdate() {
+        // Calculate the minutes and seconds remaining 
+        const minutesRemaining = Math.floor(this.timeRemain / 60);
+        const secondsRemaining = this.timeRemain % 60;
+        //Access the textContent property of the minutes and uses a ternary operator to display the remaining minutes with a preceeding 0 if less than 10
+        this.el.minutes.textContent = minutesRemaining < 10 ? `0${minutesRemaining}` : minutesRemaining;
+        //Access the textContent property of the seconds and uses a ternary operator to display the remaining seconds with a preceeding 0 if less than 10
+        this.el.seconds.textContent = secondsRemaining < 10 ? `0${secondsRemaining}` : secondsRemaining;
+
+    }
+
+    // Update button display
+    displayControlUpdate() {
+        // Change play/pause button
+        if (this.interval === null) {
+        this.el.start.innerHTML = `<span class="material-icons">play_arrow</span>`;
+        this.el.start.classList.add("time-start");
+        this.el.start.classList.remove("time-pause-play");
+        } else {
+        this.el.start.innerHTML = `<span class="material-icons">pause</span>`;
+        this.el.start.classList.add();
+        this.el.start.classList.remove();
+        }
+    }
+  
+         
+
+    // generate HTML
     static getHTML() {
-        return `
+        // Button class key: 
+        // time-start: play button; time-pause-play: pause button; time-set: button for user time input
+        // ` to use multi-line strings
+        return ` 
             <button type="button" class="time-btn time-set">
                 <span class="material-icons">timer</span>
             </button>

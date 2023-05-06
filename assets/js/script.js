@@ -1,5 +1,6 @@
 import Timer from "./timer.js";
 
+//The document.querySelector('.time-box') part is selecting the .time-box element from the DOM.
 new Timer(document.querySelector('.time-box'));
 
 // create a function to invert timer colors when timer hits 0 
