@@ -32,34 +32,52 @@ export default class Timer {
         // Calculate the minutes and seconds remaining 
         const minutesRemaining = Math.floor(this.timeRemain / 60);
         const secondsRemaining = this.timeRemain % 60;
-        //Access the textContent property of the minutes and uses a ternary operator to display the remaining minutes with a preceeding 0 if less than 10
+        //Access the textContent property of the minutes and use a ternary operator to display the remaining minutes with a preceeding 0 if less than 10
         this.el.minutes.textContent = minutesRemaining < 10 ? `0${minutesRemaining}` : minutesRemaining;
-        //Access the textContent property of the seconds and uses a ternary operator to display the remaining seconds with a preceeding 0 if less than 10
+        //Access the textContent property of the seconds and use a ternary operator to display the remaining seconds with a preceeding 0 if less than 10
         this.el.seconds.textContent = secondsRemaining < 10 ? `0${secondsRemaining}` : secondsRemaining;
 
     }
 
     // Update button display
     displayControlUpdate() {
-        // Change play/pause button
+        // Change play/pause button based on whether the timer is running or not
         if (this.interval === null) {
         this.el.start.innerHTML = `<span class="material-icons">play_arrow</span>`;
         this.el.start.classList.add("time-start");
         this.el.start.classList.remove("time-pause-play");
         } else {
         this.el.start.innerHTML = `<span class="material-icons">pause</span>`;
-        this.el.start.classList.add();
-        this.el.start.classList.remove();
+        this.el.start.classList.add("time-pause-play");
+        this.el.start.classList.remove("time-start");
         }
     }
-  
+    
+    // Start the timer
+    start(){
+        // Account for idiots: If the timer is already running, do nothing
+        if(this.secondsRemaining === 0) return;
+
+        // Code to decrement the time remaining
+        this.interval = setInterval(() => {
+            this.secondsRemaining--;
+            this.displayTimeUpdate();
+            
+            // Check if the timer has reached zero
+            if (this.secondsRemaining === 0) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
+        }, 1000);
+    }
          
 
-    // generate HTML
+    // insert HTML
     static getHTML() {
         // Button class key: 
         // time-start: play button; time-pause-play: pause button; time-set: button for user time input
         // ` to use multi-line strings
+        // TODO: add button to reset timer to 00:00
         return ` 
             <button type="button" class="time-btn time-set">
                 <span class="material-icons">timer</span>
