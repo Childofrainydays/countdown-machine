@@ -8,6 +8,7 @@ export default class Timer {
         this.el = {
             minutes: root.querySelector(".minutes"),
             seconds: root.querySelector(".seconds"),
+            // Key for button classes in getHTML section
             control: root.querySelector(".time-set"),
             start: root.querySelector(".time-start"),
             stop: root.querySelector(".time-stop"),
@@ -51,7 +52,6 @@ export default class Timer {
         this.el.minutes.textContent = minutesRemaining < 10 ? `0${minutesRemaining}` : minutesRemaining;
         //Access the textContent property of the seconds and use a ternary operator to display the remaining seconds with a preceeding 0 if less than 10
         this.el.seconds.textContent = secondsRemaining < 10 ? `0${secondsRemaining}` : secondsRemaining;
-
     }
 
     // Update button display
@@ -93,7 +93,7 @@ export default class Timer {
         this.displayTimeUpdate();
         this.displayControlUpdate();
     }
-      
+    
     // insert HTML
     static getHTML() {
         // Button class key: 
